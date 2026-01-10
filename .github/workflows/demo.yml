@@ -2,7 +2,9 @@ name: Deploy website
 on:
   push:
     branches:
-      - master    # not working
+      - master
+env:
+  MONGODB_DB_NAME: First_Mongo_DB
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -30,4 +32,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
-        run: echo "Deploying..."
+        run: echo "$MONGODB_DB_NAME"
